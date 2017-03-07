@@ -1,7 +1,7 @@
 #!/bin/bash
-read -p "输入密码:" PASS
+PASS=docker
 HOST=$(hostname)
-read -p "输入本机IP" IP
+IP=$(ip addr | grep inet | awk '{ print $2; }' | sed 's/\/.*$//' |grep 10.*)
 cd /etc/docker
 openssl genrsa -aes256 -passout pass:$PASS -out ca-key.pem 2048
 openssl req -new -x509 -days 365 -key ca-key.pem -passin pass:$PASS -sha256 -out ca.pem -subj "/C=NL/ST=./L=./O=./CN=$HOST"
