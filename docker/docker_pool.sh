@@ -16,3 +16,4 @@ EOF
 lvchange --metadataprofile docker-thinpool docker/thinpool
 lvs -o+seg_monitor
 echo -e "\033[32m 存储池设置完毕. \033[0m" 
+rm -rf docker_pool.sh 
