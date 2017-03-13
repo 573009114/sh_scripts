@@ -31,8 +31,8 @@ yum clean all && yum makecache
 yum -y update
 yum -y install  unzip lrzsz  git net-tools ntpdate 
 yum -y remove firewalld 
-ntpdate us.pool.ntp.org
-echo "30 * * * * root ntpdate us.pool.ntp.org">>/etc/crontab
+ntpdate time1.aliyun.com
+echo "30 * * * * root ntpdate time1.aliyun.com">>/etc/crontab
 echo -e "\033[32m 系统更新完毕，时间已同步. \033[0m"
 sleep 3s
 
