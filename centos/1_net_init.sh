@@ -8,7 +8,7 @@ read -p "输入子网掩码:" MS
 read -p "输入网关地址：" GT
 hostnamectl set-hostname $HOSTNAME
 cd /etc/sysconfig/network-scripts/
-net=$(ls|grep 'ifcfg-em1')
+net=$(ls|grep 'ifcfg-eth0')
 sed -i s/dhcp/static/g /etc/sysconfig/network-scripts/$net
 sed -i s/ONBOOT=no/ONBOOT=yes/g /etc/sysconfig/network-scripts/$net
 cat>>/etc/sysconfig/network-scripts/$net<<EOF
@@ -21,3 +21,6 @@ EOF
 sed -i s/SELINUX=enforcing/SELINUX=disabled/g /etc/selinux/config
 setenforce 0
 echo -e "\033[32m 网卡配置完毕. \033[0m"
+sleep 3s
+service network restart
+echo -e "\033[32m 重启后的地址$IP. \033[0m"
