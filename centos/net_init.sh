@@ -24,4 +24,4 @@ echo -e "\033[32m 网卡配置完毕. \033[0m"
 sleep 3s
 echo -e "\033[32m 重启后的地址$IP. \033[0m"
 service network restart
-rm -rf *.sh
+rm -rf net_init.sh
